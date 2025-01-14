@@ -11,7 +11,6 @@ const ThemeBtn = () => {
   return (
     <button
       onClick={() => dispatch(toggleTheme())}
-      className="p-2  rounded"
     >
       {mode === "light" ? <Moon /> : <Sun />}
     </button>
