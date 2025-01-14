@@ -1,8 +1,11 @@
 import React from 'react'
+import Sidebar from './components/Sidebar'
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <div>App</div>
+    <main className='mx-10'>
+      <Sidebar/>
+    </main>
   )
 }
 
