@@ -1,16 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import ThemeBtn from './components/ThemeBtn';
+import React from "react";
+import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Todo from "./components/Todo";
 
 const App = () => {
-  const mode = useSelector((state) => state.theme.mode);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   return (
-    <div className={`${mode === 'dark' ? 'bg-[#242424] text-[#f5f5f5]' : 'bg-white text-black'}`}>
-      <ThemeBtn/>
-      heyyy
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={isAuthenticated ? <Todo /> : <Login />} />
+        <Route path="/todo" element={isAuthenticated ? <Todo /> : <Login />} />
+      </Routes>
+    </Router>
   );
 };
 
 export default App;
+
