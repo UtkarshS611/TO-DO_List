@@ -40,7 +40,7 @@ const Sidebar = ({ isSidebarOpen }) => {
   return (
     <>
       {isMobileView ? (
-        <aside className={`max-w-72 w-full fixed shadow-md hidden lg:block`}>
+        <aside className={`max-w-72 w-full fixed bg-white shadow-md hidden lg:block`}>
           <div className="h-36 w-full bg-red-200 relative">
             <div className="h-24 w-24 rounded-full p-2 bg-white shadow-md absolute left-[50%] translate-x-[-50%] bottom-[-35%]">
               <img
