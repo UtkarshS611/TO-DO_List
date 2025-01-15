@@ -8,8 +8,12 @@ import {
   UserCheck,
   Plus,
 } from "lucide-react";
+import { useSelector } from "react-redux";
 
 const Sidebar = ({ isSidebarOpen }) => {
+
+  const mode = useSelector((state) => state.theme.mode);
+
   const taskCategories = [
     { name: "All Tasks", icon: NotebookText },
     { name: "Today", icon: Calendar },
@@ -40,9 +44,10 @@ const Sidebar = ({ isSidebarOpen }) => {
   return (
     <>
       {isMobileView ? (
-        <aside className={`max-w-72 w-full fixed bg-white shadow-md hidden lg:block`}>
-          <div className="h-36 w-full bg-red-200 relative">
-            <div className="h-24 w-24 rounded-full p-2 bg-white shadow-md absolute left-[50%] translate-x-[-50%] bottom-[-35%]">
+        <aside className={`max-w-72 w-full fixed shadow-md hidden lg:block ${mode === "dark"? "bg-[#2c2c2c]" : "bg-emerald-50"} `}>
+          
+          <div className={`h-36 w-full relative`}>
+            <div className="h-24 w-24 rounded-full p-2 bg-white/80 shadow-md absolute left-[50%] translate-x-[-50%] bottom-[-35%]">
               <img
                 src="/Profile.webp"
                 className="rounded-full h-full w-full"
@@ -53,7 +58,7 @@ const Sidebar = ({ isSidebarOpen }) => {
           <div className="mt-14 font-semibold text-center">
             <h1>Hey, John</h1>
           </div>
-          <div className="px-6 m-3 bg-white shadow-lg">
+          <div className={`px-6 py-2 m-3 shadow-lg ${mode === "dark"? "bg-[#232323]" : "bg-white"}`}>
             {taskCategories.map((category, idx) => {
               const Icon = category.icon;
               return (
@@ -67,7 +72,7 @@ const Sidebar = ({ isSidebarOpen }) => {
               );
             })}
           </div>
-          <div className="flex items-center gap-3 px-6 py-2 m-3 bg-white shadow-lg">
+          <div className={`flex items-center gap-3 px-6 py-2 m-3 shadow-lg ${mode === "dark"? "bg-[#232323]" : "bg-white"}`}>
             <span>
               <Plus />
             </span>

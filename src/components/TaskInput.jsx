@@ -1,19 +1,24 @@
 import { Bell, Calendar, Repeat } from "lucide-react";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../Redux/Features/todoSlice";
 
-const TaskInput = () => {
+const TaskInput = ({editBox, handleEdit}) => {
+
+  const mode = useSelector((state) => state.theme.mode);
+
   const [task, setTask] = useState("");
+
   const dispatch = useDispatch();
+
   const addTodoHandler = () => {
     dispatch(addTodo(task));
     setTask("");
   };
 
   return (
-    <div className="bg-emerald-50">
-      <div className="bg-gradient-to-t from-emerald-50 to-white p-4">
+    <div>
+      <div className={`bg-gradient-to-t p-4 ${mode === "dark"?  "bg-[#2F3630]" : "from-emerald-50 to-white"}`}>
         <input
           value={task}
           onChange={(e) => setTask(e.target.value)}

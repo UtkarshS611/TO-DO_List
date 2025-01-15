@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleStatus, removeTodo } from "../Redux/Features/todoSlice";
 import { Star, X } from "lucide-react";
 
-const List = () => {
+const TaskList = ({handleEdit , editBox}) => {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
@@ -33,7 +33,9 @@ const List = () => {
                 checked={todo.status === "completed"}
                 onChange={() => handleToggleStatus(todo.id)}
               />
-              {todo.text}
+              <span className="cursor-pointer" onClick={handleEdit}>
+                {todo.text}
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <button
@@ -58,7 +60,9 @@ const List = () => {
                 checked={todo.status === "completed"}
                 onChange={() => handleToggleStatus(todo.id)}
               />
+              <span className="cursor-pointer" onClick={handleEdit}>
               {todo.text}
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <button
@@ -76,4 +80,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default TaskList;
