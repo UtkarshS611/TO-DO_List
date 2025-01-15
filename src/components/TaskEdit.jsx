@@ -1,6 +1,8 @@
-import { X } from "lucide-react";
 import React, { useEffect, useState } from "react";
+
 import { useSelector } from "react-redux";
+
+import { X } from "lucide-react";
 
 const TaskEdit = ({ editBox , setEditBox }) => {
   const [location, setLocation] = useState({ lat: null, lon: null });
@@ -15,6 +17,7 @@ const TaskEdit = ({ editBox , setEditBox }) => {
 
   const Weather_API_KEY = import.meta.env.VITE_API_KEY;
 
+  // function to get location
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -61,7 +64,7 @@ const TaskEdit = ({ editBox , setEditBox }) => {
             <X/>
         </button>
       {/* weather api */}
-      <div className={` mt-12 mx-4 flex flex-col px-4 py-10 shadow-md items-center gap-10 ${mode === "dark"? "bg-[#232323]" : "bg-emerald-50"}`}>
+      <div className={` mt-12 mx-4 flex flex-col px-4 py-10 shadow-md items-center gap-10 ${mode === "dark"? "bg-[#232323]" : "bg-white"}`}>
         <h1 className="text-xl text-center font-semibold">
           Check weather today
         </h1>

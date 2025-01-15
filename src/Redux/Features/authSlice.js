@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const getInitialAuthState = () => {
+  // Check localStorage for stored authentication state
   if (typeof window !== 'undefined') {
     const savedAuth = localStorage.getItem('auth');
     return savedAuth === 'true'; 

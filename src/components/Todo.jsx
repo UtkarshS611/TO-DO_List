@@ -16,19 +16,12 @@ import TaskEdit from "./TaskEdit";
 const Todo = () => {
   const mode = useSelector((state) => state.theme.mode);
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
-    navigate("/");
-  };
 
   const[editBox, setEditBox] = useState(false);
 
@@ -51,7 +44,7 @@ const Todo = () => {
             <h1>To Do</h1>
             <ChevronDown className="size-4" />
           </div>
-          <TaskInput handleEdit={handleEdit} editBox={editBox}/>
+          <TaskInput/>
           <TaskList handleEdit={handleEdit} editBox={editBox}/>
         </div>
       </section>

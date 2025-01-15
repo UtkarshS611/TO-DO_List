@@ -6,6 +6,7 @@ const Header = ({handleSidebar}) => {
   return (
     <header className="flex justify-between py-2">
       <div className="flex items-center gap-3">
+        {/* function to handle sidebar toggle for mobile navigation */}
         <Menu onClick={handleSidebar} className="cursor-pointer"/>
         <span className="text-[#3F9142] flex items-center gap-2">
           <img src="/Logo.svg" alt="" />

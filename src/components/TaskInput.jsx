@@ -1,9 +1,11 @@
-import { Bell, Calendar, Repeat } from "lucide-react";
 import React, { useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../Redux/Features/todoSlice";
 
-const TaskInput = ({editBox, handleEdit}) => {
+import { Bell, Calendar, Repeat } from "lucide-react";
+
+const TaskInput = () => {
 
   const mode = useSelector((state) => state.theme.mode);
 
@@ -11,6 +13,7 @@ const TaskInput = ({editBox, handleEdit}) => {
 
   const dispatch = useDispatch();
 
+  // dispatch the addTodo action to add a new task
   const addTodoHandler = () => {
     dispatch(addTodo(task));
     setTask("");

@@ -11,6 +11,7 @@ const getInitialTheme = () => {
 
 const themeSlice = createSlice({
   name: 'theme',
+  // Set initial state to the theme stored in localStorage
   initialState: { mode: getInitialTheme() },
   reducers: {
     toggleTheme: (state) => {
@@ -20,7 +21,8 @@ const themeSlice = createSlice({
     },
     setTheme: (state, action) => {
       state.mode = action.payload;
-      localStorage.setItem('theme', state.mode); // Save theme to localStorage
+      // Save theme to localStorage to persist theme on page reload
+      localStorage.setItem('theme', state.mode);
     },
   },
 });

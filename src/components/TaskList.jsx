@@ -1,6 +1,8 @@
 import React from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { toggleStatus, removeTodo } from "../Redux/Features/todoSlice";
+
 import { Star, X } from "lucide-react";
 
 const TaskList = ({handleEdit , editBox}) => {
@@ -20,6 +22,7 @@ const TaskList = ({handleEdit , editBox}) => {
 
   return (
     <div>
+      {/* PENDING TASKS SECTION */}
       <h2 className="border-b-[1.5px] p-1">Pending Tasks</h2>
       <ul>
         {pendingTasks.map((todo) => (
@@ -50,6 +53,7 @@ const TaskList = ({handleEdit , editBox}) => {
         ))}
       </ul>
 
+          {/* COMPLETED TASKS SECTION */}
       <h2 className="border-b-[1.5px] p-1">Completed Tasks</h2>
       <ul>
         {completedTasks.map((todo) => (

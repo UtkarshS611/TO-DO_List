@@ -1,6 +1,8 @@
 import React from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../Redux/Features/themeSlice";
+
 import { Moon, Sun } from "lucide-react";
 
 const ThemeBtn = () => {
